@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Vending_Machine
 {
-    class Soda : Product
+    public class Soda : Product
     {
         // Soda = child,  Product = parent
         bool consumed; // should be true if product has been drank
@@ -28,7 +28,7 @@ namespace Vending_Machine
                 Console.WriteLine("You did not drink the Cola");
                 if(this.consumed == true)
                 {
-                    Console.WriteLine("Cause you already drank it!");
+                    Console.WriteLine("You already drank it!");
                     return consumed = true;
                 }
                 return consumed = false;

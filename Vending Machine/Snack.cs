@@ -5,7 +5,7 @@ using System.Text;
 namespace Vending_Machine
 {
     // Snack = child,  Product = parent
-    class Snack : Product
+    public class Snack : Product
     {
         bool consumed; // true if product has been eaten
         public Snack() //constructor

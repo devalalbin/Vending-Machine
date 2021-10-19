@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Vending_Machine
 {
-    abstract class Product
+    public abstract class Product
     {
         public string Name { get; set; }
         int price;

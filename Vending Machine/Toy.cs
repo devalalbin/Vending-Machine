@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Vending_Machine
 {
-    class Toy : Product
+    public class Toy : Product
     {
         // Toy = child,  Product = parent
         public Toy() //starting values
@@ -19,7 +19,7 @@ namespace Vending_Machine
             if (base.Use()) // if (use = true) producted is purchased 
             {
                 Console.WriteLine("Played with the GameBoy!");
-                return  true;
+                return false;
             }
             return false;
             Console.WriteLine("You did not play with"+ Name);

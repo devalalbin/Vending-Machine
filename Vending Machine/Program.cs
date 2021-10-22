@@ -14,6 +14,9 @@ namespace Vending_Machine
             snickers.Examine();
             Product gameboy = new Toy();
             gameboy.Examine();
+            MoneyHandler money = new MoneyHandler();
+            money.ReturnedMoneyArray(96);
+            money.userInputCheck(1001);
         }
     }
 }

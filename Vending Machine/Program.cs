@@ -17,6 +17,14 @@ namespace Vending_Machine
             MoneyHandler money = new MoneyHandler();
             money.ReturnedMoneyArray(96);
             money.userInputCheck(1001);
+
+            VendingMachine vending = new VendingMachine();
+            vending.ShowAll();
+            vending.InsertMoney(100);
+            vending.InsertMoney(123);
+            vending.InsertMoney(50);
+            vending.EndTransaction();
+
         }
     }
 }

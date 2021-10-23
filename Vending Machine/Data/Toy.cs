@@ -14,6 +14,11 @@ namespace Vending_Machine
             Bought = false;
             // Things to do on Soda creation like add Price and add bought status
         }
+        public Toy(string name, int price) //starting manual values 
+        {
+            this.Name = name;
+            this.Price = price;
+        }
         public override bool Use()
         {
             if (base.Use()) // if (use = true) producted is purchased 

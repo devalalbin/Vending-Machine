@@ -8,7 +8,7 @@ namespace Vending_Machine
     {
         // Soda = child,  Product = parent
         bool consumed; // should be true if product has been drank
-        public Soda() //starting values
+        public Soda() //starting values if nothing else is specified
         {
             Name = "CocaCola";
             Price = 18;
@@ -16,9 +16,10 @@ namespace Vending_Machine
             consumed = false;
            // Things to do on Soda creation like add Price and add bought status
         }
-        public Soda(string name, int price) //starting values TODOOOO ADDD CUSTUM INPOTD SODAS AND THINGS OK SEC
+        public Soda(string name, int price) //starting manual values 
         {
-          
+            this.Name = name;
+            this.Price = price;
         }
         public override bool Use()
         {

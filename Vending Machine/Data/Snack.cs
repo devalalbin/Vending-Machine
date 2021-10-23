@@ -15,6 +15,11 @@ namespace Vending_Machine
             Bought = false;
             consumed = false;
         }
+        public Snack(string name, int price) 
+        {
+            this.Name = name;
+            this.Price = price;
+        }
 
         public override bool Use()
         {

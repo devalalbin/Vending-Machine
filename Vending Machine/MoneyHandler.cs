@@ -26,7 +26,6 @@ namespace Vending_Machine
                         Array.Resize(ref returnedMoney, j + 1);
                         amount = amount - denominations[i];
                         returnedMoney[j] = denominations[i];
-                        Console.Write(returnedMoney[j] + " ");
                         j++;
                     }
                     i--;
@@ -41,11 +40,11 @@ namespace Vending_Machine
             {
                 if(input == denominations[i]) 
                 {
-                    Console.WriteLine("you put in in machine:: " + input);
+                    Console.WriteLine("You added: " + input+ "kr into the vending machine!");
                     return input;
                 }
             }
-            Console.WriteLine("thats not a valid money option");
+            Console.WriteLine("Thats not an valid input! Machine only accepts '1, 5, 10, 20, 50, 100, 500 or 1000' ");
             return 0; //return 0 if input is not a valid denomination
         }
     }

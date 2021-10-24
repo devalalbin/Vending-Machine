@@ -33,7 +33,7 @@ namespace VendingMachineTests
             vendingMachine2.InsertMoney(1);
             vendingMachine2.InsertMoney(1);
 
-            Assert.Equal(vendingMachine2.MoneyPool, expectedMoneyPool); //inserted 100 + 10 + 1 + 1 
+            Assert.Equal(vendingMachine2.MoneyPool, expectedMoneyPool); //inserted 100 + 10 + 1 + 1  checking if its 112 kr
 
             vendingMachine2.EndTransaction();
             Assert.Equal(vendingMachine2.MoneyPool, expectedMoneyPoolAfterEnding); //checking that machine is at 0 when user ended transaction

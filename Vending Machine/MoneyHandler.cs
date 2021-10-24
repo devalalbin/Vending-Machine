@@ -7,7 +7,7 @@ namespace Vending_Machine
     public class MoneyHandler
     {
         readonly int[] denominations = { 1, 5, 10, 20, 50, 100, 500, 1000 };
-        public MoneyHandler() /// TODO MAKE AN ARRAY OF RETURNED VALUES?
+        public MoneyHandler() 
         {
 
         }
@@ -15,7 +15,7 @@ namespace Vending_Machine
         {
             int[] returnedMoney = new int[0];
             int j = 0;// helping with correct spot in returned money array
-            Console.WriteLine("returning " + amount + " You get back :");
+            Console.WriteLine("Returning " + amount + " You get back :");
             int i = denominations.Length-1; // starting at spot 7 and working its way back to step through the denominations
             while (amount > 0)
             {

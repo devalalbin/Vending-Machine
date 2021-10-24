@@ -4,10 +4,9 @@ using System.Text;
 
 namespace Vending_Machine
 {
-    interface IVending
+    interface IVending // a "contract" with methods that every vendor like classes should use 
     {
-
-        //todo add what every IVending needs
+        public int MoneyPool { get; }
         void Purchase(int itemNr);
         void ShowAll();
         void InsertMoney(int insertedMoney);

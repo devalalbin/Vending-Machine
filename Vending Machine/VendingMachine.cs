@@ -8,29 +8,30 @@ namespace Vending_Machine
     public class VendingMachine : IVending //using interface IVending
     {
         //fields
-        Product cocaCola, redBull, chips, pretzel, gameBoy;
-        List<Product> listOfProducts;
+        public Product cocaCola, redBull, chips, pretzel, gameBoy; //filling the machine with slots 0-4
+        public List<Product> listOfProducts;
         int moneyPool;
-        public int MoneyPool { get { return moneyPool; } set { moneyPool = value; } }
+        public int MoneyPool { get { return moneyPool; } private set { moneyPool = value; } }
         MoneyHandler moneyHandler = new MoneyHandler();
 
-        public VendingMachine() //constructor
+        public VendingMachine() //constructor filling the machine with products and their price
         {
             MoneyPool = 0; //starting money
-            cocaCola = new Soda("CocaCola", 16);
+            cocaCola = new Soda("CocaCola", 16); 
             redBull = new Soda("RedBull", 20);
             chips = new Snack("Chips", 29);
             pretzel = new Snack("Pretzel", 12);
             gameBoy = new Toy("GameBoy", 999);
             listOfProducts = new List<Product> { cocaCola,redBull,chips,pretzel,gameBoy};
-            //ShowAll();
         }
         public void ShowAll() //show all Works but should implement interface in next update
         {
-            Console.WriteLine(listOfProducts[1]);
+            Console.WriteLine("Vending machine items: ");
             foreach (Product prod in listOfProducts)
             {
-                Console.WriteLine(prod.Name);
+                if(prod != null) { 
+                    Console.WriteLine(prod.Name);
+                }
             }
         }
         public void InsertMoney(int insertedMoney) // insert money should only accept correct denomination valuess
@@ -46,15 +47,21 @@ namespace Vending_Machine
             int[] returedMoney = moneyHandler.ReturnedMoneyArray(moneyPool);
             for(int i = 0; i <= returedMoney.Length-1; i++)
             {
-                Console.WriteLine(" "+ returedMoney[i]);
+                Console.Write(" "+ returedMoney[i]);
             }
-
-            
+            MoneyPool = 0;
+            Console.WriteLine(" Transaction ended");
         }
         public void Purchase(int itemNumber) //buy a product from the vendormachine
         {
-            //check what item cost
-            //if user buys it set product to = bought so it can be consomed
+            if (MoneyPool >= listOfProducts[itemNumber].Price) //check if use has enough money to buy the object
+            {
+                Console.WriteLine("You bought :" + listOfProducts[itemNumber].Name);
+                listOfProducts[itemNumber].Bought = true; //sets item to bought so it can be consumed
+                MoneyPool = MoneyPool - listOfProducts[itemNumber].Price; // deducts the price from moneypool
+                listOfProducts[itemNumber] = null; //removes item from vendingmachine
+            }
+            else { Console.WriteLine("You don't have enough money to buy that product, You currently have:" + moneyPool + " and product costs :" + listOfProducts[itemNumber].Price); }
         }
     }
 

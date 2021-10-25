@@ -26,6 +26,7 @@ namespace Vending_Machine
             vending.Purchase(0); // buying the cola 20kr
 
             vending.Purchase(4);
+            gameBoy.Examine();
             gameBoy.Use();
 
         

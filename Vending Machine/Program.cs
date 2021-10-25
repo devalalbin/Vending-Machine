@@ -23,9 +23,6 @@ namespace Vending_Machine
             vending.InsertMoney(1000);
             vending.InsertMoney(1000);
             vending.InsertMoney(1000);
-            vending.listOfProducts.Add(new Soda("Cola", 20, 2));
-            vending.listOfProducts.Add(new Soda("Fanta", 18, 1));
-            vending.listOfProducts.Add(new Toy("GameBoy", 1499, "zelda"));
             vending.Purchase(0); // buying the cola 20kr
 
             vending.Purchase(4);
@@ -35,6 +32,8 @@ namespace Vending_Machine
             vending.listOfProducts.Add(cola);
             
             vending.ShowAll();
+
+            vending.EndTransaction();
         }
     }
 }

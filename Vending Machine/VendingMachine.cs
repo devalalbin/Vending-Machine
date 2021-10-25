@@ -46,11 +46,19 @@ namespace Vending_Machine
         }
         public void EndTransaction() //ends current transaction and returns all money in correct denominations
         {
+            Dictionary<int, int> testDic = new Dictionary<int, int>(); //demonination = key, number of times it exist = value
+            testDic.Add(1000, 0);testDic.Add(500, 0);testDic.Add(100, 0);testDic.Add(50, 0);testDic.Add(20, 0);testDic.Add(10, 0);testDic.Add(5, 0);testDic.Add(1, 0);
+
             int[] returedMoney = moneyHandler.ReturnedMoneyArray(moneyPool);
             for(int i = 0; i <= returedMoney.Length-1; i++)
             {
-                Console.Write(" "+ returedMoney[i]);
+                testDic[returedMoney[i]]++; // increased denomination value for each time value appears in returned money array
             }
+
+            foreach (KeyValuePair<int, int>  dic in testDic)
+                if(dic.Value != 0) { //if denomination value is not empty print
+                    Console.WriteLine("Value: {0} * {1}", dic.Key, dic.Value); 
+                }
             MoneyPool = 0;
             Console.WriteLine(" Transaction ended");
         }

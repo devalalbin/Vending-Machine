@@ -8,21 +8,23 @@ namespace Vending_Machine
     public class VendingMachine : IVending //using interface IVending
     {
         //fields
-        public Product cocaCola, redBull, chips, pretzel, gameBoy; //filling the machine with slots 0-4
+        //public Product cocaCola, redBull, chips, pretzel, gameBoy; //filling the machine with slots 0-4
         public List<Product> listOfProducts;
         int moneyPool;
         public int MoneyPool { get { return moneyPool; } private set { moneyPool = value; } }
         MoneyHandler moneyHandler = new MoneyHandler();
+        //Dictionary moneyDictionary = new Dictionary();
 
         public VendingMachine() //constructor filling the machine with products and their price
         {
             MoneyPool = 0; //starting money
-            cocaCola = new Soda("CocaCola", 16); 
-            redBull = new Soda("RedBull", 20);
-            chips = new Snack("Chips", 29);
-            pretzel = new Snack("Pretzel", 12);
-            gameBoy = new Toy("GameBoy", 999);
-            listOfProducts = new List<Product> { cocaCola,redBull,chips,pretzel,gameBoy};
+            /*
+            cocaCola = new Soda("CocaCola", 16,2); 
+            redBull = new Soda("RedBull", 20,1);
+            chips = new Snack("Chips", 29,"300g");
+            pretzel = new Snack("Pretzel", 12,"50g");
+            gameBoy = new Toy("GameBoy", 999, "Donkey Kong"); */
+            listOfProducts = new List<Product> { }; //{ cocaCola,redBull,chips,pretzel,gameBoy};
         }
         public void ShowAll() //show all Works but should implement interface in next update
         {

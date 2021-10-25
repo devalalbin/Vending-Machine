@@ -8,29 +8,23 @@ namespace Vending_Machine
     {
         // Soda = child,  Product = parent
         bool consumed; // should be true if product has been drank
-        public Soda() //starting values if nothing else is specified
-        {
-            Name = "CocaCola";
-            Price = 18;
-            Bought = false;
-            consumed = false;
-           // Things to do on Soda creation like add Price and add bought status
-        }
-        public Soda(string name, int price) //starting manual values 
+        int recycleValue;
+        public Soda(string name, int price, int recycleValue) //starting manual values 
         {
             this.Name = name;
             this.Price = price;
+            this.recycleValue = recycleValue;
         }
         public override bool Use()
         {
             if (base.Use() && this.consumed == false) // if (use = true) producted is purchased AND (consumed = false) User can drink the product
             {
-                Console.WriteLine("You Drank the Cola");
+                Console.WriteLine("You Drank the "+Name);
                 return consumed = true;
             }
             else
             {
-                Console.WriteLine("You did not drink the Cola");
+                Console.WriteLine("You did not drink the "+Name);
                 if(this.consumed == true)
                 {
                     Console.WriteLine("You already drank it!");

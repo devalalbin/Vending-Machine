@@ -8,29 +8,24 @@ namespace Vending_Machine
     public class Snack : Product
     {
         bool consumed; // true if product has been eaten
-        public Snack() //constructor
-        {
-            Name = "Snickers";
-            Price = 10;
-            Bought = false;
-            consumed = false;
-        }
-        public Snack(string name, int price) 
+        string size;
+        public Snack(string name, int price, string size) 
         {
             this.Name = name;
             this.Price = price;
+            this.size = size;
         }
 
         public override bool Use()
         {
             if(base.Use() && this.consumed == false)
             {
-                Console.WriteLine("You ate the Snickers");
+                Console.WriteLine("You ate the "+ Name);
                 return consumed = true;
             }
             else 
             {
-                Console.WriteLine("You did not eat the Snickers");
+                Console.WriteLine("You did not eat the " + Name);
                 if (this.consumed == true)
                 {
                     Console.WriteLine("Cause you already have eaten it!");

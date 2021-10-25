@@ -11,13 +11,17 @@ namespace VendingMachineTests
         {
             string expectedName = "CocaCola";
             string expectedName2 = "Pretzel";
-            int excpectedPrice = 12;
+            int excpectedPrice = 9;
 
-            VendingMachine vendingMachine = new VendingMachine(); //vendingmachine prefilled with [0]CocaCola [1]Redbull [2]Chips [3]pretzel [4]Gameboy
+            VendingMachine vendingMachine = new VendingMachine(); //vendingmachine prefilled with [0]CocaCola [1]Pretzel 
+            Soda cola = new Soda("CocaCola", 20, 2);
+            Snack pretzel = new Snack("Pretzel", 9, "50g"); 
+            vendingMachine.listOfProducts.Add(cola);
+            vendingMachine.listOfProducts.Add(pretzel);
 
             Assert.Equal(vendingMachine.listOfProducts[0].Name, expectedName); //checking that vendingmachine filled correctly
-            Assert.Equal(vendingMachine.listOfProducts[3].Name, expectedName2);
-            Assert.Equal(vendingMachine.listOfProducts[3].Price, excpectedPrice); //pretzel costs 12kr
+            Assert.Equal(vendingMachine.listOfProducts[1].Name, expectedName2);
+            Assert.Equal(vendingMachine.listOfProducts[1].Price, excpectedPrice); //pretzel costs 12kr
         }
         [Fact]
         public void VendingMachineMoneyTest() //checking if we can insert money correctly
@@ -47,20 +51,23 @@ namespace VendingMachineTests
             bool expectedTrue = true;
             Product emptyCheck = null;
 
-            VendingMachine vendingMachine3 = new VendingMachine();
+            VendingMachine vendingMachine3 = new VendingMachine(); //[0]redBull
+            Soda redBull = new Soda("RedBull", 29, 2);
+            vendingMachine3.listOfProducts.Add(redBull);
 
-            Assert.Equal(vendingMachine3.listOfProducts[1].Bought, expectedFalse); //cheking bought status = false
+
+            Assert.Equal(vendingMachine3.listOfProducts[0].Bought, expectedFalse); //cheking bought status = false
             
-            vendingMachine3.Purchase(1); //trying to buy the redbull with 0 money should not buy
+            vendingMachine3.Purchase(0); //trying to buy the redbull with 0 money should not buy
 
-            Assert.Equal(vendingMachine3.redBull.Bought, expectedFalse);//cheking bought status = false
+            Assert.Equal(redBull.Bought, expectedFalse);//cheking bought status = false
             
             
             vendingMachine3.InsertMoney(100); // after adding money buying product should be possible
-            vendingMachine3.Purchase(1);  
-            Assert.Equal(vendingMachine3.redBull.Bought, expectedTrue);
+            vendingMachine3.Purchase(0);  
+            Assert.Equal(redBull.Bought, expectedTrue);
 
-            Assert.Equal(vendingMachine3.listOfProducts[1], emptyCheck); // checking so product is taken away from vendingmachine
+            Assert.Equal(vendingMachine3.listOfProducts[0], emptyCheck); // checking so product is taken away from vendingmachine
         }
 
     }

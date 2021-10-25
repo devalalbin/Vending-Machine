@@ -7,17 +7,34 @@ namespace Vending_Machine
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Vending Machine!");
-
+            Soda cola = new Soda("Cola", 20, 2);
+            Soda fanta = new Soda("Fanta", 10, 1);
+            Snack snickers = new Snack("Snickers", 13, "100g");
+            Snack twix = new Snack("Twix", 9, "50g");
+            Toy gameBoy = new Toy("GameBoy", 1499, "Donkey Kong");
             VendingMachine vending = new VendingMachine();
+            vending.listOfProducts.Add(cola);
+            vending.listOfProducts.Add(fanta);
+            vending.listOfProducts.Add(snickers);
+            vending.listOfProducts.Add(twix);
+            vending.listOfProducts.Add(gameBoy);
+
             vending.ShowAll(); 
             vending.InsertMoney(1000);
-            vending.redBull.Use(); //trying to use redbull before purchace should not use it
-            vending.Purchase(1); // buying the redbull 20kr
-            vending.ShowAll();
-            vending.redBull.Use(); //drinking the redbull
-            vending.redBull.Use(); //should give message "you already drank it"
-            vending.EndTransaction(); //returning 980 kr in correct denominations
+            vending.InsertMoney(1000);
+            vending.InsertMoney(1000);
+            vending.listOfProducts.Add(new Soda("Cola", 20, 2));
+            vending.listOfProducts.Add(new Soda("Fanta", 18, 1));
+            vending.listOfProducts.Add(new Toy("GameBoy", 1499, "zelda"));
+            vending.Purchase(0); // buying the cola 20kr
 
+            vending.Purchase(4);
+            gameBoy.Use();
+
+        
+            vending.listOfProducts.Add(cola);
+            
+            vending.ShowAll();
         }
     }
 }
